@@ -1,0 +1,36 @@
+## Editor directory
+**/.vscode
+
+## Ignore NPM 'node_modules' directory
+**/node_modules
+
+## Ignore Composer 'vendor' directory
+**/vendor
+
+## Ignore generated source maps
+*.map
+
+## Ignore log files
+yarn-error.log*
+
+## Ignore .env file - secrets inside
+.env
+
+## Ignore NPM configuration file
+.npmrc
+
+## Yarn - Not using Zero-Installs
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+## Ignore Miscellaneous
+**/.misc
+
+## Other files/directories to ignore
+**/*.bak
+**/storage
