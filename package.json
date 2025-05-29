@@ -1,8 +1,9 @@
 {
-    "name": "some-awesome-project",
-    "version": "1.1.1",
-    "description": "Project setup guidelines for my personal projects",
-    "main": "index.js",
+    "name": "nubitools",
+    "version": "0.1.0",
+    "description": "Node utilities",
+    "main": "src/index.js",
+    "type": "module",
     "license": "MIT",
     "author": {
         "name": "Sandro Miguel Marques",
@@ -10,23 +11,26 @@
         "url": "http://sandromiguel.com"
     },
     "keywords": [
-        "project",
-        "setup",
-        "guidelines",
-        "javascript"
+        "node",
+        "helpers",
+        "utilities",
+        "utils",
+        "cli",
+        "git",
+        "fs"
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/SandroMiguel/some-awesome-project.git"
+        "url": "git+https://github.com/SandroMiguel/nubitools.git"
     },
     "bugs": {
-        "url": "https://github.com/SandroMiguel/some-awesome-project/issues"
+        "url": "https://github.com/SandroMiguel/nubitools/issues"
     },
     "scripts": {
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "lint:format": "prettier --write \"./**/*.{js,jsx,json}\"",
-        "test": "echo \"no test specified\" && exit 0"
+        "test": "jest"
     },
     "config": {
         "commitizen": {
@@ -34,12 +38,14 @@
             "disableScopeLowerCase": true
         }
     },
+    "engines": {
+        "node": ">=18.0.0"
+    },
     "devDependencies": {
         "@commitlint/cli": "^16.3.0",
         "@commitlint/config-conventional": "^16.2.4",
         "cz-conventional-changelog": "^3.3.0",
         "eslint-config-cecilia": "^2.10.1",
-        "husky": "^9.1.7",
-        "standard-version": "^9.5.0"
+        "husky": "^9.1.7"
     }
 }
