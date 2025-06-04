@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.0.0 (2025-06-04)
+
+
+### Features
+
+* **promptInput.js:** generic prompt for user input with optional custom validation ([d80f422](https://github.com/SandroMiguel/nubitools/commit/d80f4229fa3ac5fc1e94e62b217cc6fc39cbb6f7))
+* **promptInput.js:** generic prompt for user input with optional custom validation ([685a1b5](https://github.com/SandroMiguel/nubitools/commit/685a1b598e13dd499296691c22100c4a5271df3d))
+
 ## [1.1.1](https://github.com/SandroMiguel/some-awesome-project/compare/v1.1.0...v1.1.1) (2025-03-10)
 
 
