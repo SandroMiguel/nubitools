@@ -1,7 +1,7 @@
 import inquirer from 'inquirer'
 
 /**
- * Generic prompt for user input with optional custom validation.
+ * generic prompt for user input with optional custom validation
  *
  * @param {string} message The message to display.
  * @param {(input: string) => boolean | string} [validate] Validation function (optional).

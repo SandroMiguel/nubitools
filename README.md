@@ -10,17 +10,17 @@ Reusable utility functions for my Node.js projects — and maybe yours too.
 
 ## Project Goals
 
--   **Dogfood first** – Only add features actively used in real-world projects.
--   **Simplicity** – Focus on small, composable functions that solve practical problems.
--   **Modular** – Organized by domain (e.g., file system, git, CLI).
--   **No TypeScript** – Plain JavaScript for fast prototyping and hacking.
--   **MIT Licensed** – Made for personal use, but open to everyone.
+- **Dogfood first** – Only add features actively used in real-world projects.
+- **Simplicity** – Focus on small, composable functions that solve practical problems.
+- **Modular** – Organized by domain (e.g., file system, git, CLI).
+- **No TypeScript** – Plain JavaScript for fast prototyping and hacking.
+- **MIT Licensed** – Made for personal use, but open to everyone.
 
 ## Out of Scope
 
--   No browser or frontend utilities
--   No TypeScript support or type annotations
--   Not dependency-free (uses practical packages like `inquirer`)
+- No browser or frontend utilities
+- No TypeScript support or type annotations
+- Not dependency-free (uses practical packages like `inquirer`)
 
 ## Installation
 
@@ -30,11 +30,22 @@ npm install <package-name-coming-soon>
 
 ## Usage
 
-(WIP)
+### `promptInput(message, validate?)`
+
+Prompt the user for input in the terminal using [Inquirer.js](https://github.com/SBoudrias/Inquirer.js), with optional input validation.
+
+**Example:**
 
 ```js
-// Example coming soon
-```
+import { promptInput } from 'nubitools/cli/promptInput.js';
+
+async function main() {
+  const name = await promptInput('What is your name?', input => input.trim().length > 0 || 'Name cannot be empty');
+  console.log(`Hello, ${name}!`);
+}
+
+main();
+
 
 ## Contributing
 
@@ -49,3 +60,4 @@ If you have questions tweet me at [@sandro_m_m](https://twitter.com/sandro_m_m) 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 **~ sharing is caring ~**
+```
