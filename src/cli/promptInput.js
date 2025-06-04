@@ -1,4 +1,4 @@
-import inquirer from "inquirer";
+import inquirer from 'inquirer'
 
 /**
  * Generic prompt for user input with optional custom validation.
@@ -11,12 +11,12 @@ import inquirer from "inquirer";
 export async function promptInput(message, validate) {
   const { input } = await inquirer.prompt([
     {
-      type: "input",
-      name: "input",
+      type: 'input',
+      name: 'input',
       message,
       validate,
     },
-  ]);
+  ])
 
-  return input;
+  return input
 }

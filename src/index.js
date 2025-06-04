@@ -1,1 +1,1 @@
-export { promptInput } from "./cli/promptInput";
+export { promptInput } from './cli/promptInput'
