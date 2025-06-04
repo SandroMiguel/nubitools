@@ -25,7 +25,7 @@ Reusable utility functions for my Node.js projects — and maybe yours too.
 ## Installation
 
 ```bash
-npm install <package-name-coming-soon>
+npm install nubitools
 ```
 
 ## Usage
@@ -63,7 +63,3 @@ If you have questions tweet me at [@sandro_m_m](https://twitter.com/sandro_m_m) 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 **~ sharing is caring ~**
-
-```
-
-```
