@@ -1,2 +1,2 @@
-export { promptInput } from './cli/promptInput'
-export { readJsonFile } from './fs/readJsonFile'
+export { promptInput } from './cli/promptInput.js'
+export { readJsonFile } from './fs/readJsonFile.js'

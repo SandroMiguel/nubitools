@@ -3,6 +3,9 @@
     "version": "1.2.0",
     "description": "Node utilities",
     "main": "src/index.js",
+    "exports": {
+        ".": "./src/index.js"
+    },
     "type": "module",
     "license": "MIT",
     "author": {
