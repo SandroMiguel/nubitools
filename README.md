@@ -37,7 +37,7 @@ Prompt the user for input in the terminal using [Inquirer.js](https://github.com
 **Example:**
 
 ```js
-import { promptInput } from 'nubitools/cli/promptInput.js'
+import { promptInput } from 'nubitools'
 
 async function main() {
     const name = await promptInput(
@@ -48,6 +48,20 @@ async function main() {
 }
 
 main()
+```
+
+### `readJsonFile(filePath)`
+
+Reads and parses a JSON file from the given path.
+
+- Throws if the file does not exist.
+- Throws if the JSON is invalid.
+
+```js
+import { readJsonFile } from 'nubitools'
+
+const config = readJsonFile('./config.json')
+console.log(config.setting)
 ```
 
 ## Contributing
