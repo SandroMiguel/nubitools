@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/SandroMiguel/nubitools/compare/v1.0.0...v1.1.0) (2025-06-05)
+
+
+### Features
+
+* **fs:** add readJsonFile utility with tests and docs ([750c165](https://github.com/SandroMiguel/nubitools/commit/750c165d47ed8535eb44c099a1fac6641f975228))
+* **promptInput.js:** generic prompt for user input with optional custom validation ([778f797](https://github.com/SandroMiguel/nubitools/commit/778f7972bb03d666f88d06e719599cf352c113bb))
+* **promptInput.js:** generic prompt for user input with optional custom validation ([3e18f3c](https://github.com/SandroMiguel/nubitools/commit/3e18f3cc0376a5182a796042f32c50ef1bc4c9bf))
+
 ## 1.0.0 (2025-06-05)
 
 
