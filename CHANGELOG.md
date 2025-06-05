@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.1](https://github.com/SandroMiguel/nubitools/compare/v1.2.0...v1.2.1) (2025-06-05)
+
+
+### Bug Fixes
+
+* add .js extensions to ESM exports and define 'exports' in package.json ([275b45b](https://github.com/SandroMiguel/nubitools/commit/275b45b06b772065d1496ee0dfe709ddc7002828))
+
 ## [1.2.0](https://github.com/SandroMiguel/nubitools/compare/v1.1.0...v1.2.0) (2025-06-05)
 
 
