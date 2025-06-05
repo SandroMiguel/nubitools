@@ -260,10 +260,10 @@ __metadata:
 
 "nubitools@file:..::locator=nubitools-e2e-test%40workspace%3A.":
   version: 1.1.0
-  resolution: "nubitools@file:..#..::hash=bfeffb&locator=nubitools-e2e-test%40workspace%3A."
+  resolution: "nubitools@file:..#..::hash=05d615&locator=nubitools-e2e-test%40workspace%3A."
   dependencies:
     inquirer: "npm:^9.0.0"
-  checksum: 10/839bd055ab9f05c361ebf496aaf7970dafbede0ca45721cad6dc0c137cb1aa1de215f6cbccaadf02d62eddaa3b14be85c5a07fc5e5fd6fe76930760503e840db
+  checksum: 10/0096ccade563245ba731ef3c91f2f23e916d8eb19fb2bdf4bfaaec43b8a74628018b6a205e36e93a1d17c883d8dbde2f072dd04110abb6c5e8920cd4b1d8be88
   languageName: node
   linkType: hard
 
