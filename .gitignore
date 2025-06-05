@@ -34,4 +34,4 @@ yarn-error.log*
 ## Other files/directories to ignore
 **/*.bak
 **/storage
-__test-project__/
+__test-project__/.yarn/
