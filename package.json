@@ -31,6 +31,7 @@
         "lint:fix": "eslint . --fix",
         "lint:format": "prettier --write \"./**/*.{js,jsx,json}\"",
         "test": "jest",
+        "test:e2e": "cd __test-project__ && yarn install && yarn start",
         "prepare": "husky",
         "sync:eslint-config-cecilia": "rsync -r -t --progress --delete ../eslint-config-cecilia/ ./node_modules/eslint-config-cecilia/",
         "format": "prettier --write './**/*.{js,jsx,json}'",
@@ -62,5 +63,9 @@
         "husky": "^9.1.7",
         "jest": "^29.7.0",
         "prettier": "^3.5.3"
-    }
+    },
+    "dependencies": {
+        "inquirer": "^9.0.0"
+    },
+    "packageManager": "yarn@4.9.2"
 }
