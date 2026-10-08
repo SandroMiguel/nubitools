@@ -10,15 +10,7 @@ import { spawnSync } from 'child_process'
  *
  * @throws {Error} Throws if any git command fails during clone, sparse checkout init, set, or checkout.
  */
-/**
- * Clones a Git repository with sparse checkout enabled and checks out only specified paths.
- *
- * @param {string} repoUrl - The URL of the Git repository to clone.
- * @param {string[]} sparsePaths - Array of file or directory paths to sparse checkout.
- * @param {string} targetDir - The target directory where the repo will be cloned.
- *
- * @throws {Error} Throws if any git command fails during clone, sparse checkout init, set, or checkout.
- */
+
 export function gitSparseClone(repoUrl, sparsePaths, targetDir) {
   if (fs.existsSync(targetDir)) {
     fs.rmSync(targetDir, { recursive: true, force: true })
@@ -33,14 +25,13 @@ export function gitSparseClone(repoUrl, sparsePaths, targetDir) {
     throw new Error(`Failed to clone repo: ${repoUrl}`)
   }
 
-  const hasPatterns = sparsePaths.some((sparsePath) =>
+  const invalidConePaths = sparsePaths.filter((sparsePath) =>
     /[*?[\]\\]/.test(sparsePath),
   )
 
-  if (hasPatterns) {
+  if (invalidConePaths.length > 0) {
     throw new Error(
-      `Invalid sparse checkout path for cone mode: ${sparsePaths
-        .filter((sparsePath) => /[*?[\]\\]/.test(sparsePath))
+      `Invalid sparse checkout path for cone mode: ${invalidConePaths
         .map((sparsePath) => `"${sparsePath}"`)
         .join(', ')}`,
     )
