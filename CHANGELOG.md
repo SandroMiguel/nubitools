@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.1](https://github.com/SandroMiguel/nubitools/compare/v1.4.0...v1.4.1) (2026-10-08)
+
+
+### Bug Fixes
+
+* check npm authentication before release ([6a4c0cc](https://github.com/SandroMiguel/nubitools/commit/6a4c0ccc6a11386d24d48c2fa0e3c68ae0d2e97e))
+
 ## [1.4.0](https://github.com/SandroMiguel/nubitools/compare/v1.3.0...v1.4.0) (2026-10-08)
 
 
