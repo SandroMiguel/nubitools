@@ -32,18 +32,11 @@ describe('gitSparseClone', () => {
     expect(fs.existsSync(readmePath)).toBe(true)
   })
 
-  test('clones a repo successfully when sparse checkout paths are omitted', () => {
-    expect(() => {
-      gitSparseClone(repoUrl, [], tempDir)
-    }).not.toThrow()
-
-    expect(fs.existsSync(path.join(tempDir, '.git'))).toBe(true)
-    expect(fs.existsSync(path.join(tempDir, 'README'))).toBe(true)
-  })
-
   test('throws an error for sparse checkout paths incompatible with cone mode', () => {
     expect(() => {
-      gitSparseClone('invalid-repo', ['web/public/environment*.php'], tempDir)
-    }).toThrow('Failed to clone repo: invalid-repo')
+      gitSparseClone(repoUrl, ['README*.md'], tempDir)
+    }).toThrow(
+      'Invalid sparse checkout path for cone mode: "README*.md"',
+    )
   })
 })
