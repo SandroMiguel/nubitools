@@ -11,40 +11,80 @@ import { spawnSync } from 'child_process'
  * @throws {Error} Throws if any git command fails during clone, sparse checkout init, set, or checkout.
  */
 export function gitSparseClone(repoUrl, sparsePaths, targetDir) {
+  const normalizedSparsePaths = Array.isArray(sparsePaths)
+    ? sparsePaths.filter(
+        (sparsePath) =>
+          typeof sparsePath === 'string' && sparsePath.trim().length > 0,
+      )
+    : typeof sparsePaths === 'string' && sparsePaths.trim().length > 0
+      ? [sparsePaths.trim()]
+      : []
+
   if (fs.existsSync(targetDir)) {
     fs.rmSync(targetDir, { recursive: true, force: true })
   }
+
   console.log(`🌀 Cloning ${repoUrl} into ${targetDir}...`)
+
   const clone = spawnSync(
     'git',
     ['clone', '--filter=blob:none', '--no-checkout', repoUrl, targetDir],
     { stdio: 'inherit' },
   )
+
   if (clone.status !== 0) {
     throw new Error(`Failed to clone repo: ${repoUrl}`)
   }
 
-  const sparseInit = spawnSync('git', ['sparse-checkout', 'init', '--cone'], {
-    cwd: targetDir,
-    stdio: 'inherit',
-  })
+  if (normalizedSparsePaths.length === 0) {
+    const checkout = spawnSync('git', ['checkout'], {
+      cwd: targetDir,
+      stdio: 'inherit',
+    })
+
+    if (checkout.status !== 0) {
+      throw new Error('Failed to checkout files')
+    }
+
+    return
+  }
+
+  const hasPatterns = normalizedSparsePaths.some((sparsePath) =>
+    /[*?[\]\\]/.test(sparsePath),
+  )
+
+  const sparseInit = spawnSync(
+    'git',
+    ['sparse-checkout', 'init', hasPatterns ? '--no-cone' : '--cone'],
+    {
+      cwd: targetDir,
+      stdio: 'inherit',
+    },
+  )
+
   if (sparseInit.status !== 0) {
     throw new Error('Failed to init sparse checkout')
   }
 
   const sparseSet = spawnSync(
     'git',
-    ['sparse-checkout', 'set', ...sparsePaths],
+    ['sparse-checkout', 'set', ...normalizedSparsePaths],
     { cwd: targetDir, stdio: 'inherit' },
   )
+
   if (sparseSet.status !== 0) {
-    throw new Error('Failed to set sparse checkout paths')
+    throw new Error(
+      `Failed to set sparse checkout paths: ${normalizedSparsePaths
+        .map((sparsePath) => `"${sparsePath}"`)
+        .join(', ')}`,
+    )
   }
 
   const checkout = spawnSync('git', ['checkout'], {
     cwd: targetDir,
     stdio: 'inherit',
   })
+
   if (checkout.status !== 0) {
     throw new Error('Failed to checkout files')
   }
