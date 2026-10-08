@@ -11,6 +11,13 @@ describe('gitSparseClone', () => {
   const repoUrl = 'https://github.com/octocat/Hello-World.git'
   const sparsePaths = ['README']
 
+  /**
+   * Runs a Git command in the specified working directory.
+   *
+   * @param {string[]} args - The arguments to pass to Git.
+   * @param {string} cwd - The working directory where Git should run.
+   * @throws {Error} Throws if the Git command fails.
+   */
   const runGit = (args, cwd) => {
     const result = spawnSync('git', args, {
       cwd,
@@ -22,6 +29,11 @@ describe('gitSparseClone', () => {
     }
   }
 
+  /**
+   * Creates a temporary Git repository with files used to test sparse checkout patterns.
+   *
+   * @returns {void}
+   */
   const createTestRepo = () => {
     fs.mkdirSync(repoDir, { recursive: true })
     runGit(['init'], repoDir)
