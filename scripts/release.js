@@ -56,6 +56,21 @@ function pullLatestChanges() {
 }
 
 /**
+ * Ensures that the user is authenticated with npm.
+ *
+ * @throws {Error} Throws if the user is not authenticated with npm.
+ */
+function ensureNpmAuthenticated() {
+  try {
+    execSync('npm whoami', { stdio: 'ignore' })
+  } catch {
+    throw new Error(
+      'You are not authenticated with npm. Run "npm login" before releasing.',
+    )
+  }
+}
+
+/**
  * Publishes the package to npm with public access.
  * Uses `npm publish --access public`.
  */
@@ -69,6 +84,7 @@ function publishToNpm() {
  * - Verifies current branch is "main"
  * - Ensures working directory is clean
  * - Pulls latest changes
+ * - Ensures npm authentication
  * - Publishes to npm
  */
 function release() {
@@ -76,6 +92,7 @@ function release() {
     ensureOnMainBranch()
     ensureCleanWorkingDirectory()
     pullLatestChanges()
+    ensureNpmAuthenticated()
     publishToNpm()
     console.log('✅ Release complete!')
     process.exit(0)
