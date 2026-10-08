@@ -10,7 +10,6 @@ import { spawnSync } from 'child_process'
  *
  * @throws {Error} Throws if any git command fails during clone, sparse checkout init, set, or checkout.
  */
-
 export function gitSparseClone(repoUrl, sparsePaths, targetDir) {
   if (fs.existsSync(targetDir)) {
     fs.rmSync(targetDir, { recursive: true, force: true })
