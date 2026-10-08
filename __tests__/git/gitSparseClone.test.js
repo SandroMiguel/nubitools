@@ -31,4 +31,12 @@ describe('gitSparseClone', () => {
     console.log('readmePath', readmePath)
     expect(fs.existsSync(readmePath)).toBe(true)
   })
+
+  test('throws an error for sparse checkout paths incompatible with cone mode', () => {
+    expect(() => {
+      gitSparseClone(repoUrl, ['README*.md'], tempDir)
+    }).toThrow(
+      'Invalid sparse checkout path for cone mode: "README*.md"',
+    )
+  })
 })
