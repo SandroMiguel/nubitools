@@ -30,7 +30,11 @@ export function gitSparseClone(repoUrl, sparsePaths, targetDir) {
 
   const sparseInit = spawnSync(
     'git',
-    ['sparse-checkout', 'init', patternPaths.length > 0 ? '--no-cone' : '--cone'],
+    [
+      'sparse-checkout',
+      'init',
+      patternPaths.length > 0 ? '--no-cone' : '--cone',
+    ],
     {
       cwd: targetDir,
       stdio: 'inherit',

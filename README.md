@@ -99,6 +99,32 @@ const config = readJsonFile('./config.json')
 console.log(config.setting)
 ```
 
+## Development
+
+Install dependencies with:
+
+```bash
+yarn install
+```
+
+### Scripts
+
+| Command            | Description                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `yarn lint`        | Checks the codebase for ESLint errors.                                                                      |
+| `yarn lint:fix`    | Fixes ESLint errors automatically when possible.                                                            |
+| `yarn lint:format` | Formats JavaScript, JSX, and JSON files using Prettier.                                                     |
+| `yarn test`        | Runs the Jest test suite.                                                                                   |
+| `yarn test:e2e`    | Installs dependencies for the end-to-end test project if necessary and runs it.                             |
+| `yarn release`     | Verifies a clean `main` branch, pulls the latest changes, and publishes the current package version to npm. |
+
+### Additional scripts
+
+The project also contains scripts used by the development tooling:
+
+- `yarn prepare` – Initializes Husky Git hooks.
+- `yarn sync:eslint-config-cecilia` – Synchronizes the local `eslint-config-cecilia` package from the sibling project directory.
+
 ## Contributing
 
 Want to contribute? All contributions are welcome. Read the [contributing guide](CONTRIBUTING.md).
