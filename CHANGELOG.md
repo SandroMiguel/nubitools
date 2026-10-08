@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/SandroMiguel/nubitools/compare/v1.3.0...v1.4.0) (2026-10-08)
+
+
+### Features
+
+* support sparse checkout patterns ([6225f09](https://github.com/SandroMiguel/nubitools/commit/6225f09fd8990eea86969d10ba67b54e9a1720ba))
+
+
+### Bug Fixes
+
+* clean up sparse checkout error handling ([c4d31d8](https://github.com/SandroMiguel/nubitools/commit/c4d31d87cdc07df9a0497c446e01c7ce2b8b9003))
+* handle empty sparse checkout paths ([2333282](https://github.com/SandroMiguel/nubitools/commit/2333282e24ad24f4df8b6b4eb85c854d995ecddb))
+* keep sparse clone behavior focused ([e2f8f78](https://github.com/SandroMiguel/nubitools/commit/e2f8f7827132bc31bd8cdc0d2ddf00dfce71d541))
+* restore gitSparseClone JSDoc ([28e3caa](https://github.com/SandroMiguel/nubitools/commit/28e3caab4a8adc82aba9a0470400f11c4d869dfa))
+
 ## [1.3.0](https://github.com/SandroMiguel/nubitools/compare/v1.2.1...v1.3.0) (2025-06-05)
 
 
