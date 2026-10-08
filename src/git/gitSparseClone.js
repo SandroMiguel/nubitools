@@ -10,7 +10,6 @@ import { spawnSync } from 'child_process'
  *
  * @throws {Error} Throws if any git command fails during clone, sparse checkout init, set, or checkout.
  */
-
 export function gitSparseClone(repoUrl, sparsePaths, targetDir) {
   if (fs.existsSync(targetDir)) {
     fs.rmSync(targetDir, { recursive: true, force: true })
@@ -25,22 +24,18 @@ export function gitSparseClone(repoUrl, sparsePaths, targetDir) {
     throw new Error(`Failed to clone repo: ${repoUrl}`)
   }
 
-  const invalidConePaths = sparsePaths.filter((sparsePath) =>
+  const patternPaths = sparsePaths.filter((sparsePath) =>
     /[*?[\]\\]/.test(sparsePath),
   )
 
-  if (invalidConePaths.length > 0) {
-    throw new Error(
-      `Invalid sparse checkout path for cone mode: ${invalidConePaths
-        .map((sparsePath) => `"${sparsePath}"`)
-        .join(', ')}`,
-    )
-  }
-
-  const sparseInit = spawnSync('git', ['sparse-checkout', 'init', '--cone'], {
-    cwd: targetDir,
-    stdio: 'inherit',
-  })
+  const sparseInit = spawnSync(
+    'git',
+    ['sparse-checkout', 'init', patternPaths.length > 0 ? '--no-cone' : '--cone'],
+    {
+      cwd: targetDir,
+      stdio: 'inherit',
+    },
+  )
   if (sparseInit.status !== 0) {
     throw new Error('Failed to init sparse checkout')
   }
